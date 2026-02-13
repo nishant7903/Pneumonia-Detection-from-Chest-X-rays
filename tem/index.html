@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pneumonia Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pneumonia Detection from X-Ray</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+    <h2>Result: {{ prediction }}</h2>
+{% endif %}
+
+{% if gradcam %}
+    <h3>Model Focus (Grad-CAM):</h3>
+    <img src="{{ gradcam }}" width="300">
+{% endif %}
+
+    </div>
+</body>
+</html>
